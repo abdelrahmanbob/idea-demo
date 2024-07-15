@@ -36,7 +36,6 @@ function App() {
   return (
     <Router>
       <NavBar />
-      <Home />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/invest" element={<Invest />} />
