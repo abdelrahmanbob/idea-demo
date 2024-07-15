@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './component/Navbar';
 import Home from './component/Home';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
