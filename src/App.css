@@ -1,0 +1,234 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Signika', sans-serif;
+}
+
+.nav-link, .LogoName, .user-icon {
+  font-family: 'Signika', sans-serif;
+}
+
+.logoSearchLangUserNav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navLogo{
+  display: flex;
+  margin-left: 2%;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000000000000;
+}
+.navLogo a{
+  text-decoration: none;
+}
+.navLogo img{
+  width: 70px;
+}
+.nameLogo{
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navSearchLangUser{
+  display: flex;
+  margin-right: 2%;
+  width: 60%;
+  align-items: center;
+  justify-content: flex-end;
+}
+.navlang {
+  display: flex;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 4%;
+  align-items: center;
+  justify-content: space-between;
+}
+.dropdownMenu {
+  top: 5%;
+  right: 6%;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdownItem {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.dropdownItem:hover {
+  background-color: #f1f1f1;
+}
+
+/* SearchBox.css */
+.searchBox {
+  background: #fff;
+  border-radius: 40px;
+  margin-right: 5%;
+}
+.searchBox:hover > .searchInput {
+  width: 240px;
+  padding: 0 6px;
+  color: #000; 
+}
+.searchBox:hover > .searchButton {
+  background: #000;
+  color: #fff;
+}
+.searchButton {
+  color: #000;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: #fff; /* Default text color when collapsed */
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+}
+
+.navUser {
+  width: 29px;
+  height: 30px;
+  display: flex;
+  font-size: 20px;
+  border-radius: 50%;
+  align-items: flex-end;
+  justify-content: center;
+  border: solid 2px #000;
+}
+
+.Links{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.Links a{
+  margin: 0 50px;
+}
+.Links a:hover{
+  color: #0029A4;
+  text-decoration: 5px underline;
+}
+
+/* App.css */
+
+.sideBarNav {
+  top: 0;
+  right: -100%;
+  width: 50%;
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed position to stay in place */
+  background-color: #fff;
+  color: #000;
+  height: 100%;
+  transition: right 0.5s ease; /* Smooth slide-in effect */
+  z-index: 1000; /* Ensure it's above other content */
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.sideBarNav.visible {
+  right: 0; /* Move into view */
+}
+
+.sideBarSearch {
+  flex: 0 1 auto; /* Allow it to grow */
+  margin:15% 0% 5% 0%;
+}
+
+.SideBarLinks {
+  flex: 1 1 auto; /* Allow it to grow and take remaining space */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 20%;
+}
+
+.SideBarLangUser {
+  flex: 0 1 auto; /* Allow it to grow */
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.SideBarLinks .divider {
+  display: none;
+}
+
+.sideBartoggleButton {
+  position: fixed;
+  top: 1%;
+  right: 4%;
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10000; /* Ensure it's above the sidebar */
+}
+
+
+.rounded-bottom-custom{
+  border-radius: 0% 0% 20% 0%;
+}
+.WhoAreWeHeader {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.WhoAreWeButton {
+  background-color: #0029A4;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 25px;
+}
+.WhoAreWeButton:hover {
+  background-color: #0536ca;
+}
+
+
+
+
+@media screen and (min-width:961px){
+  .sideBartoggleButton{display: none;}
+}
+
+@media screen and (max-width: 960px) {
+  .navSearchLangUser { display: none; }
+  .Links { display: none; }
+  .sideBarNav {
+    display: flex; /* Make it visible */
+    font-size: 25px;
+    width: 100%; /* Adjusted for better visibility */
+  }
+  .searchBox:hover > .searchInput{
+    width: 80%;
+  }
+  .dropdownMenu{
+    top: 82%;
+    right: 60%;
+  }
+}
