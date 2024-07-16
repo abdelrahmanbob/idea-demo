@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'; // BrowserRouter
 import NavBar from './component/Navbar';
 import Home from './component/Home';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
@@ -27,7 +27,6 @@ function AboutUs() {
 function ContactUs() {
   return <h2>Contact Us Page</h2>;
 }
-
 
 
 
