@@ -1,18 +1,23 @@
+const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
-const db_url = "mongodb://localhost:27017/IDEA";
+const localDB_URL = 'mongodb://localhost:27017/ideaDB';
 
-const db_connection = async()=>{
+const dbUsername = process.env.DB_USERNAME;
+const dbPassword = process.env.DB_PASSWORD;
+const dbHost = process.env.DB_HOST;
+const dbName = process.env.DB_NAME
+const dbOptions = process.env.DB_OPTIONS;
 
-try{await mongoose.connect(db_url);
+const db_URL = `mongodb+srv://${dbUsername}:${dbPassword}@${dbHost}/${dbName}${dbOptions}`;
 
-console.log("Database connected");
+const db_connection = async () => {
+  try {
+    await mongoose.connect(db_URL ? db_URL : localDB_URL);
 
-}
-
-catch(error){
-    console.log('Error while connecting' + error.message);
-}
-
-}
+    console.log("Database connected");
+  } catch (error) {
+    console.log('Error while connecting: ' + error.message);
+  }
+};
 
 module.exports = db_connection;

@@ -10,7 +10,7 @@ function WhoAreWe() {
     useEffect(()=>{
         const fetchText = async () => {
             try{
-                const response = await axios.get("Link back-end");
+                const response = await axios.get("http://127.0.0.1:2000/api/whoarewe");
                 setParagraphText(response.data.mainText);
                 setSubText(response.data.subText);
             }catch (error) {
@@ -18,7 +18,6 @@ function WhoAreWe() {
             }
         };
     }, []);
-
   return (
     <div className="WhoAreWe container-fluid bg-light rounded-bottom-custom">
         <div className="row justify-content-center align-items-center py-5">

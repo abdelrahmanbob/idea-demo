@@ -4,12 +4,39 @@
 }
 body {
   font-family: 'Signika', sans-serif;
+  height: 10000px;
 }
+.space{
+  margin: 1%;
+}
+
+/* Main Navigation bar */
+
+nav {
+  position: static;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+nav.fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000; 
+  background-color: #fff;
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+nav.hidden-nav {
+  transform: translateY(-100%); 
+}
+
 
 .nav-link, .LogoName, .user-icon {
   font-family: 'Signika', sans-serif;
 }
-
 .logoSearchLangUserNav{
   display: flex;
   justify-content: space-between;
@@ -20,7 +47,7 @@ body {
   margin-left: 2%;
   align-items: center;
   justify-content: center;
-  z-index: 10000000000000;
+  z-index: 100000;
 }
 .navLogo a{
   text-decoration: none;
@@ -34,7 +61,6 @@ body {
   font-weight: bold;
   text-decoration: none;
 }
-
 .navSearchLangUser{
   display: flex;
   margin-right: 2%;
@@ -64,6 +90,28 @@ body {
 }
 .dropdownItem:hover {
   background-color: #f1f1f1;
+}
+.navUser {
+  width: 29px;
+  height: 30px;
+  display: flex;
+  font-size: 20px;
+  border-radius: 50%;
+  align-items: flex-end;
+  justify-content: center;
+  border: solid 2px #000;
+}
+.Links{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.Links a{
+  margin: 0 50px;
+}
+.Links a:hover{
+  color: #0029A4;
+  text-decoration: 5px underline;
 }
 
 /* SearchBox.css */
@@ -106,32 +154,7 @@ body {
   width: 0px;
 }
 
-.navUser {
-  width: 29px;
-  height: 30px;
-  display: flex;
-  font-size: 20px;
-  border-radius: 50%;
-  align-items: flex-end;
-  justify-content: center;
-  border: solid 2px #000;
-}
-
-.Links{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.Links a{
-  margin: 0 50px;
-}
-.Links a:hover{
-  color: #0029A4;
-  text-decoration: 5px underline;
-}
-
-/* App.css */
-
+/* side bar */
 .sideBarNav {
   top: 0;
   right: -100%;
@@ -147,16 +170,13 @@ body {
   padding: 20px;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
 }
-
 .sideBarNav.visible {
   right: 0; /* Move into view */
 }
-
 .sideBarSearch {
   flex: 0 1 auto; /* Allow it to grow */
   margin:15% 0% 5% 0%;
 }
-
 .SideBarLinks {
   flex: 1 1 auto; /* Allow it to grow and take remaining space */
   overflow-y: auto; /* Allow scrolling if content overflows */
@@ -166,18 +186,15 @@ body {
   justify-content: space-evenly;
   margin-bottom: 20%;
 }
-
 .SideBarLangUser {
   flex: 0 1 auto; /* Allow it to grow */
   display: flex;
   justify-content: space-evenly;
   gap: 10px;
 }
-
 .SideBarLinks .divider {
   display: none;
 }
-
 .sideBartoggleButton {
   position: fixed;
   top: 1%;
@@ -190,7 +207,7 @@ body {
   z-index: 10000; /* Ensure it's above the sidebar */
 }
 
-
+/* Section Who are we */
 .rounded-bottom-custom{
   border-radius: 0% 0% 20% 0%;
 }
@@ -209,9 +226,50 @@ body {
   background-color: #0536ca;
 }
 
+/* Section Industries */
+.IndustriesBox {
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+  cursor: pointer;
+  width: 300px; /* Adjust as needed */
+  height: 200px; /* Adjust as needed */
+}
+
+.IndustriesBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Adjust as needed */
+  border-radius: 25px; /* Same as .IndustriesBox for rounded corners */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 25px; /* Rounded corners */
+}
+
+.IndustriesBox:hover .overlay {
+  opacity: 1;
+}
+
+.IndustriesText {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 
 
-
+/* responsive */
 @media screen and (min-width:961px){
   .sideBartoggleButton{display: none;}
 }

@@ -1,5 +1,5 @@
 import '../App.css';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import ideaLogo from '../assets/idea.png';
@@ -10,9 +10,39 @@ import NavigationLinks from './NavigationLinks';
 import NavUser from './NavUser';
 
 function NavBar() {
+  const [isFixed, setIsFixed] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > 50) {
+        if (currentScrollY > lastScrollY) {
+          // Scrolling down
+          setIsVisible(false);
+        } else {
+          // Scrolling up
+          setIsVisible(true);
+        }
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+        setIsVisible(true);
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   
   return (
-    <nav>
+    <nav className={`${isFixed ? 'fixed-nav' : ''} ${!isVisible ? 'hidden-nav' : ''}`}>
       <div className='logoSearchLangUserNav'>
         <div className='navLogo'>
           <Link to='/'>
@@ -34,6 +64,7 @@ function NavBar() {
       <div className='Links'>
         <NavigationLinks />
       </div>
+      <div className='space'></div>
     </nav>
   );
 }

@@ -26,7 +26,7 @@ function NavbarSide() {
                 <div className="sideBarSearch">
                     <SearchBox />
                 </div>
-                <div className='SideBarLinks'>
+                <div className='SideBarLinks' onClick={toggleSideBar}>
                     <NavigationLinks />
                 </div>
                 <div className='SideBarLangUser'>
