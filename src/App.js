@@ -3,6 +3,7 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom'; // Brows
 import NavBar from './component/Navbar';
 import Home from './component/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 
 

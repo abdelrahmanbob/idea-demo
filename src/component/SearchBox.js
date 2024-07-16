@@ -1,21 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useFunctions } from '../useFunctions';
 
 library.add(fas);
 
 function SearchBox() {
-    const [searchTerm, setSearchTerm] = useState('');
-  
-    const handleInputChange = (event) => {
-      setSearchTerm(event.target.value);
-    };
-  
-    const handleSearch = () => {
-      console.log('Search term:', searchTerm);
-      // Add your search logic here
-    };
+    const { searchTerm, handleInputChange, handleSearch } = useFunctions();
   
     return (
       <div className="searchBox">

@@ -1,23 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
 import OfficeImg from '../assets/img-0.2.jpg';
-
+import { useFunctions } from '../useFunctions';
 
 function WhoAreWe() {
-    const [paragraphText, setParagraphText] = useState('');
-    const [subText, setSubText] = useState('');
+  const { paragraphText, subText } = useFunctions();
 
-    useEffect(()=>{
-        const fetchText = async () => {
-            try{
-                const response = await axios.get("http://127.0.0.1:2000/api/whoarewe");
-                setParagraphText(response.data.mainText);
-                setSubText(response.data.subText);
-            }catch (error) {
-                console.log("Error Fetching the Paragraph", error);
-            }
-        };
-    }, []);
   return (
     <div className="WhoAreWe container-fluid bg-light rounded-bottom-custom">
         <div className="row justify-content-center align-items-center py-5">

@@ -15,6 +15,7 @@ const industries = [
   { img: CulinaryImg, text: 'Culinary' },
 ];
 
+
 function Industries() {
   return (
     <div className="container text-center my-5">

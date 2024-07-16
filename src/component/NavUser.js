@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 library.add(fas);
 
 function NavUser() {
-  // const [dropdownVisible, setDropdownVisible] = useState(false);
 
 
   return (

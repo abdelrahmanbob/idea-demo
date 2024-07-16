@@ -1,22 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useFunctions } from '../useFunctions';
 
 library.add(fas);
 
 function LanguageSelector() {
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState('En');
-
-  const toggleDropdown = () => {
-    setDropdownVisible(prevState => !prevState);
-  };
-
-  const selectLanguage = (language) => {
-    setCurrentLanguage(language);
-    setDropdownVisible(false);
-  };
+  const {toggleDropdown, currentLanguage, dropdownVisible, selectLanguage } = useFunctions();
 
   return (
     <div className='navlang' onClick={toggleDropdown}> 
