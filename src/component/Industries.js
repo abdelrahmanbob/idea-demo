@@ -22,7 +22,7 @@ function Industries() {
       <h1 className="mb-4">Our Industries</h1>
       <div className="row justify-content-center">
         {industries.map((industry, index) => (
-          <div key={index} className="col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
+          <div key={index} className="col-md-4 col-lg-4 mb-4 d-flex justify-content-center">
             <div className="IndustriesBox">
               <img src={industry.img} alt={industry.text} />
               <div className="overlay">

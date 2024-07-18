@@ -15,6 +15,7 @@ function NavBar() {
 
   return (
     <>
+      <div className='space'></div>
       <nav className={`${isFixed ? 'fixed-nav' : ''} ${!isVisible ? 'hidden-nav' : ''}`}>
         <div className='logoSearchLangUserNav'>
           <div className='navLogo'>

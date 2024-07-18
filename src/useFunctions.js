@@ -1,5 +1,3 @@
-// File: useNavBarFunctions.js
-
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -12,6 +10,10 @@ export const useFunctions = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [paragraphText, setParagraphText] = useState('');
   const [subText, setSubText] = useState('');
+  const [stories, setStories] = useState([]); // State for success stories
+  const [loading, setLoading] = useState(true); // State for loading
+  const [error, setError] = useState(null);
+
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -43,7 +45,6 @@ export const useFunctions = () => {
     setSideBarVisible(prevState => !prevState); // Toggle sidebar visibility
   };
   
-
   const toggleDropdown = () => {
     setDropdownVisible(prevState => !prevState);
   };
@@ -52,7 +53,6 @@ export const useFunctions = () => {
     setCurrentLanguage(language);
     setDropdownVisible(false);
   };
-
 
   
     const handleInputChange = (event) => {
@@ -64,9 +64,6 @@ export const useFunctions = () => {
       // Add your search logic here
     };
 
-
-    
-
     useEffect(()=>{
         const fetchText = async () => {
             try{
@@ -77,21 +74,49 @@ export const useFunctions = () => {
                 console.log("Error Fetching the Paragraph", error);
             }
         };
+        fetchText();
     }, []);
+
+    useEffect(() => {
+      const fetchStories = async () => {
+        try {
+          const response = await axios.get('http://127.0.0.1:2000/api/successstories');
+          setStories(response.data);
+          setLoading(false);
+        } catch (error) {
+          setError(error);
+          setLoading(false);
+        }
+      };
+      fetchStories();
+    }, []);
+
+    const chunkArray = (arr, size) => {
+      return arr.reduce((acc, _, i) => {
+        if (i % size === 0) {
+          acc.push(arr.slice(i, i + size));
+        }
+        return acc;
+      }, []);
+    };
 
 
   return { 
     toggleSideBar,
     toggleDropdown,
-    selectLanguage, 
-    handleInputChange, 
+    selectLanguage,
+    handleInputChange,
     handleSearch,
+    chunkArray,
     isFixed,
     isVisible,
     sideBarVisible,
-    dropdownVisible, 
+    dropdownVisible,
     currentLanguage,
     paragraphText,
-    subText
+    subText,
+    stories,
+    loading,
+    error,
    };
 };

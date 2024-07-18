@@ -4,10 +4,22 @@
 }
 body {
   font-family: 'Signika', sans-serif;
-  height: 10000px;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Bitter', sans-serif;
 }
 .space{
   margin: 1%;
+}
+.MainButton {
+  background-color: #0029A4;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 25px;
+}
+.MainButton:hover {
+  background-color: #0536ca;
 }
 
 /* Main Navigation bar */
@@ -115,41 +127,59 @@ nav.hidden-nav {
 .searchBox {
   background: #fff;
   border-radius: 40px;
-  margin-right: 5%;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  position: relative; /* Add relative positioning for the underline */
 }
-.searchBox:hover > .searchInput {
-  width: 240px;
-  padding: 0 6px;
-  color: #000; 
-}
-.searchBox:hover > .searchButton {
+
+.searchBox::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
   background: #000;
-  color: #fff;
+  transition: width 0.4s; /* Animate the underline */
 }
+
+.searchBox:hover::after {
+  width: calc(100% - 20px); /* Extend the underline, accounting for padding */
+}
+
 .searchButton {
   color: #000;
-  float: right;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
   background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.4s;
+  border: none; /* Remove the border */
+  outline: none; /* Remove the default outline */
 }
+
 .searchInput {
   border: none;
   background: none;
   outline: none;
-  float: left;
-  padding: 0;
   color: #fff; /* Default text color when collapsed */
   font-size: 16px;
-  transition: 0.4s;
+  transition: width 0.4s; /* Animate width */
   line-height: 40px;
   width: 0px;
+  padding-left: 10px; /* Ensure padding for text */
 }
+
+.searchBox:hover > .searchInput {
+  width: 240px;
+  padding: 0 6px;
+  color: #000; 
+}
+
+
 
 /* side bar */
 
@@ -203,7 +233,7 @@ nav.hidden-nav {
 .sideBartoggleButton {
   position: fixed;
   top: 10px; /* Adjust position as needed */
-  right: 10px; /* Adjust position as needed */
+  right: 30px; /* Adjust position as needed */
   background: none;
   border: none;
   color: #000;
@@ -214,22 +244,13 @@ nav.hidden-nav {
 
 /* Section Who are we */
 .rounded-bottom-custom{
-  border-radius: 0% 0% 20% 0%;
+  border-radius: 0px 0px 200px 0px;
 }
 .WhoAreWeHeader {
   font-size: 2rem;
   font-weight: bold;
 }
-.WhoAreWeButton {
-  background-color: #0029A4;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 25px;
-}
-.WhoAreWeButton:hover {
-  background-color: #0536ca;
-}
+
 
 /* Section Industries */
 .IndustriesBox {
@@ -237,7 +258,7 @@ nav.hidden-nav {
   overflow: hidden;
   border-radius: 25px;
   cursor: pointer;
-  width: 300px; /* Adjust as needed */
+  width: 500px; /* Adjust as needed */
   height: 200px; /* Adjust as needed */
 }
 
@@ -258,13 +279,9 @@ nav.hidden-nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
+  opacity: 1; /* Set to 1 to make the overlay always visible */
   transition: opacity 0.3s ease;
   border-radius: 25px; /* Rounded corners */
-}
-
-.IndustriesBox:hover .overlay {
-  opacity: 1;
 }
 
 .IndustriesText {
@@ -273,6 +290,28 @@ nav.hidden-nav {
   font-weight: bold;
 }
 
+
+/* Section Success Stories */
+.CompaniesStoriesContainer{
+  background-color: #f1f1f1;
+  border-radius: 200px 0px 0px 0px;
+  padding: 5%;
+}
+.StoriresCardContainer{
+  border-radius: 25px;
+  height: 500px;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #000; 
+  filter: none;
+}
+.carousel-control-next {
+  justify-content: flex-end !important;
+}
+.carousel-control-prev {
+  justify-content: flex-start !important;
+}
 
 /* responsive */
 @media screen and (min-width:961px){
@@ -288,10 +327,25 @@ nav.hidden-nav {
     width: 100%; /* Adjusted for better visibility */
   }
   .searchBox:hover > .searchInput{
-    width: 80%;
+    width: 89%;
   }
   .dropdownMenu{
     top: 82%;
     right: 60%;
+  }
+  .searchBox:hover::after {
+    width: calc(100% - 50px); /* Extend the underline, accounting for padding */
+  }
+}
+
+@media screen and (max-width:580px){
+  .CompaniesStoriesContainer{
+    padding: 13% 0%;
+  }
+  .searchBox:hover > .searchInput{
+    width: 88%;
+  }
+  .searchBox:hover::after {
+    width: calc(100% - 20px); /* Extend the underline, accounting for padding */
   }
 }
