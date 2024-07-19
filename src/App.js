@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom'; //BrowserRouter HashRouter
+import { HashRouter as Router } from 'react-router-dom'; //BrowserRouter HashRouter
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import AppContent from './AppContent';
