@@ -9,7 +9,13 @@ h1,h2,h3,h4,h5,h6{
   font-family: 'Bitter', sans-serif;
 }
 .space{
+  margin: 2%;
+}
+.spacemin{
   margin: 1%;
+}
+.spacemax{
+  margin: 5%;
 }
 .MainButton {
   background-color: #0029A4;
@@ -50,17 +56,17 @@ nav.hidden-nav {
   justify-content: space-between;
   align-items: center;
 }
-.navLogo{
+.LogoMain{
   display: flex;
   margin-left: 2%;
   align-items: center;
   justify-content: center;
   z-index: 100000;
 }
-.navLogo a{
+.LogoMain a{
   text-decoration: none;
 }
-.navLogo img{
+.LogoMain img{
   width: 70px;
 }
 .nameLogo{
@@ -296,6 +302,7 @@ nav.hidden-nav {
   background-color: #f1f1f1;
   border-radius: 200px 0px 0px 0px;
   padding: 5%;
+  overflow: hidden;
 }
 .StoriresCardContainer{
   border-radius: 25px;
@@ -338,6 +345,91 @@ nav.hidden-nav {
   border: 2px solid #ddd; /* Border on hover */
 }
 
+/* footer */
+.footer {
+  background-color: #163696;
+  color: #fff;
+  padding: 2% 0;
+}
+.footerLogo {
+  display: flex;
+  justify-content: flex-start;
+  padding: 2%;
+}
+.footerLogo .nameLogo{
+  color: #fff;
+}
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+.footerDivider {
+  border-left: solid 1px #fff;
+  height: 100%;
+  margin: 0 1rem;
+}
+.footerSection {
+  flex: 1;
+  padding: 0 1rem;
+}
+.footerSection .divider{
+  display: none;
+}
+.footerSection:nth-child(2) {
+  flex: 2;
+}
+.form-control{
+  width: 60% !important;
+}
+.SubscribeButton{
+  width: 25%;
+}
+.footerHeaderSection {
+  border-bottom: solid 2px #fff;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  margin-bottom: 5rem;
+}
+.subscribeSection {
+  text-align: center;
+}
+.footerLinks a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.footerLinks {
+  margin-bottom: 1rem;
+}
+.footerSocialMediaIcons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.footerSocialMediaIcons a {
+  cursor: pointer;
+  color: #163696;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+/* Copy Right */
+.CopyRight{
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 
 /* responsive */
 @media screen and (min-width:961px){
@@ -361,6 +453,20 @@ nav.hidden-nav {
   }
   .searchBox:hover::after {
     width: calc(100% - 50px); /* Extend the underline, accounting for padding */
+  }
+  .footerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footerLinks{
+    text-align: center;
+  }
+  .footerSection{
+    margin-bottom: 5rem;
+  }
+  .footerHeaderSection{
+    margin-bottom: 3rem;
   }
 }
 

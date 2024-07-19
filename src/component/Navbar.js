@@ -1,31 +1,21 @@
-// File: NavBar.js
-
 import React from 'react';
-import { Link } from 'react-router-dom';
-import ideaLogo from '../assets/idea.png';
 import SearchBox from './SearchBox';
 import LanguageSelector from './LanguageSelector';
 import NavigationLinks from './NavigationLinks';
 import NavUser from './NavUser';
 import NavbarSide from './NavbarSide';
-import { useFunctions } from '../useFunctions'; // Adjust the path as necessary
+import { useFunctions } from '../useFunctions';
+import Logo from './Logo';
 
 function NavBar() {
   const { isFixed, isVisible, toggleSideBar, sideBarVisible } = useFunctions();
 
   return (
     <>
-      <div className='space'></div>
       <nav className={`${isFixed ? 'fixed-nav' : ''} ${!isVisible ? 'hidden-nav' : ''}`}>
+        <div className='spacemin'></div>
         <div className='logoSearchLangUserNav'>
-          <div className='navLogo'>
-            <Link to='/'>
-              <img src={ideaLogo} alt='Loading...' />
-            </Link>
-            <Link to='/'>
-              <span className='nameLogo'>IDEA</span>
-            </Link>
-          </div>
+          <Logo />
           <div className='navSearchLangUser'>
             <SearchBox />
             <LanguageSelector />

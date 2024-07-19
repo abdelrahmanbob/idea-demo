@@ -8,9 +8,13 @@ function Home() {
   return (
     <>
       <WhoAreWe />
+      <div className='space'></div>
       <Industries />
+      <div className='space'></div>
       <CompaniesStories />
+      <div className='space'></div>
       <PartnersFeatured />
+      <div className='space'></div>
     </>
   );
 }
